@@ -11,9 +11,9 @@
             _secondRoll = secondRoll;
         }
 
-        public TotalScore Score(TotalScore totalScore)
+        public Score Score()
         {
-            return totalScore.Plus(_firstRoll).Plus(_secondRoll);
+            return new Score(_firstRoll.Value).Plus(_secondRoll);
         }
     }
 }

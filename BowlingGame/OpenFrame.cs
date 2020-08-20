@@ -11,11 +11,11 @@
             _firstRoll = firstRoll;
         }
 
-        public TotalScore Score(TotalScore totalScore)
+        public Score Score()
         {
             return _firstRoll
                 .RollAnother(_bowlingRolls)
-                .Score(totalScore);
+                .Score();
         }
     }
 }

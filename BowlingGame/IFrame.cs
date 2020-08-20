@@ -2,6 +2,6 @@
 {
     public interface IFrame
     {
-        TotalScore Score(TotalScore totalScore);
+        Score Score();
     }
 }

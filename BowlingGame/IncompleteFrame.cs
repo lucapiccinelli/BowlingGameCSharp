@@ -9,9 +9,14 @@
             _roll = roll;
         }
 
-        public TotalScore Score(TotalScore totalScore)
+        public Score Score(Score score)
         {
-            return totalScore.Plus(_roll);
+            return score.Plus(this);
+        }
+
+        public Score Score()
+        {
+            return new Score(_roll.Value);
         }
     }
 }

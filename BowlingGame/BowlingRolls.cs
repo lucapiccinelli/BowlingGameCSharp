@@ -22,11 +22,11 @@ namespace BowlingGame
             return _rolls.Dequeue();
         }
 
-        public TotalScore AssignBonus(TotalScore totalScore, int howMany)
+        public Score AssignBonus(Score score, int howMany)
         {
             return _rolls
                 .Take(howMany)
-                .Aggregate(totalScore, (score, roll) => score.Plus(roll));
+                .Aggregate(score, (score, roll) => score.Plus(roll));
         }
     }
 }

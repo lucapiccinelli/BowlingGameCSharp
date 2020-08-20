@@ -8,14 +8,14 @@ namespace BowlingGame
         public static void Main(string[] args)
         {
             BowlingRolls rolls = ParseInput(args);
-            TotalScore totalScore = BowlingGame.ComputeTotalScore(rolls);
-            PrintTotalScore(totalScore);
+            Score score = BowlingGame.ComputeTotalScore(rolls);
+            PrintTotalScore(score);
         }
 
-        private static void PrintTotalScore(TotalScore totalScore)
+        private static void PrintTotalScore(Score score)
         {
-            Console.WriteLine(totalScore.Frames);
-            Console.WriteLine(totalScore);
+            Console.WriteLine(score.Frames);
+            Console.WriteLine(score);
         }
 
         private static BowlingRolls ParseInput(string[] args) => new BowlingRolls(

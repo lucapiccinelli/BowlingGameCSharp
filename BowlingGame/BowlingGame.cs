@@ -4,21 +4,22 @@ namespace BowlingGame
     {
         private const int MaxFrames = 10;
 
-        public static TotalScore ComputeTotalScore(BowlingRolls rolls)
+        public static Score ComputeTotalScore(BowlingRolls rolls)
         {
-            TotalScore totalScore = new TotalScore(0);
+            Score score = new Score(0);
             int currentFrameNum = 0;
             while (rolls.CanTake() && currentFrameNum < MaxFrames)
             {
                 Roll firstRoll = rolls.RollOne();
-                totalScore = Frame
+                score = Frame
                     .From(rolls, firstRoll)
-                    .Score(totalScore);
+                    .Score()
+                    .Plus(score);
 
                 currentFrameNum++;
             }
 
-            return totalScore;
+            return score;
         }
     }
 }

@@ -11,9 +11,9 @@
             _firstRoll = firstRoll;
         }
 
-        public TotalScore Score(TotalScore totalScore)
+        public Score Score()
         {
-            return _bowlingRolls.AssignBonus(totalScore.Plus(_firstRoll), 2);
+            return _bowlingRolls.AssignBonus(new Score(_firstRoll.Value), 2);
         }
     }
 }
