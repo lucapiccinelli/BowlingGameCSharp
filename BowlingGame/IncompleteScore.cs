@@ -12,12 +12,14 @@
 
         public IScore Plus(IScore score)
         {
-            return new IncompleteScore(_score.Plus(score), Frames);
+            var newScore = _score.Plus(score);
+            return new IncompleteScore(newScore, newScore.Frames);
         }
 
         public IScore Plus(int value, FrameList frames)
         {
-            return new IncompleteScore(_score.Plus(value, frames), Frames.Add(frames));
+            var newScore = _score.Plus(value, frames);
+            return new IncompleteScore(newScore, newScore.Frames);
         }
 
         public FrameList Frames { get; }

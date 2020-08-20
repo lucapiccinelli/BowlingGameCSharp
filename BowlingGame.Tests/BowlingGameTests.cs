@@ -30,6 +30,7 @@ namespace BowlingGame.Tests
         [InlineData("10 10 10 10 10 10 10 10 10 10 10 10", "300")]
         [InlineData("1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1", "20")]
         [InlineData("5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5", "150")]
+        [InlineData("10 10 10", "60")]
         public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsTheTotalScoreOnANewLine(string rolls, string expectedTotalScore)
         {
             Program.Main(rolls.Split(" "));
@@ -51,6 +52,7 @@ namespace BowlingGame.Tests
         [InlineData("1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1", "2,2,2,2,2,2,2,2,2,2")]
         [InlineData("2 1 2 6 1 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1", "3,8,4,2,2,2,2,2,2,2")]
         [InlineData("5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5", "15,15,15,15,15,15,15,15,15,15")]
+        [InlineData("10 10 10", "30,-,-")]
         public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsThePartialScoreOnANewLine(string rolls, string expectedPartialScore)
         {
             Program.Main(rolls.Split(" "));
