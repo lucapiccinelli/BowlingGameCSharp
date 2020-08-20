@@ -17,7 +17,7 @@ namespace BowlingGame
             return _rolls.Count > 0;
         }
 
-        public Roll TakeNext()
+        public Roll RollOne()
         {
             return _rolls.Dequeue();
         }
