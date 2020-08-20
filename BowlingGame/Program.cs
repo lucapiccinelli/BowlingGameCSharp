@@ -19,7 +19,29 @@ namespace BowlingGame
 
         private static TotalScore ComputeTotalScore(Roll[] rolls)
         {
-            return new TotalScore(rolls.Sum(roll => roll.Value));
+            int totalScoreValue = 0;
+            int rollsNumber = rolls.Length;
+
+            for (int i = 0; i < rollsNumber;)
+            {
+                Roll firstRoll = rolls[i++];
+                totalScoreValue += firstRoll.Value;
+
+                if (i < rollsNumber)
+                {
+                    Roll secondRoll = rolls[i++];
+                    totalScoreValue += secondRoll.Value;
+
+                    if (firstRoll.Value + secondRoll.Value == 10 && i < rollsNumber)
+                    {
+                        Roll bonusRoll = rolls[i];
+                        totalScoreValue += bonusRoll.Value;
+                    }
+                }
+            }
+
+
+            return new TotalScore(totalScoreValue);
         }
 
         private static Roll[] ParseInput(string[] args) =>
