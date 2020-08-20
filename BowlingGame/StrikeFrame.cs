@@ -2,16 +2,18 @@
 {
     public class StrikeFrame : IFrame
     {
+        private readonly BowlingRolls _bowlingRolls;
         private readonly Roll _firstRoll;
 
-        public StrikeFrame(Roll firstRoll)
+        public StrikeFrame(BowlingRolls bowlingRolls, Roll firstRoll)
         {
+            _bowlingRolls = bowlingRolls;
             _firstRoll = firstRoll;
         }
 
-        public TotalScore Score(BowlingRolls rolls, TotalScore totalScore)
+        public TotalScore Score(TotalScore totalScore)
         {
-            return rolls.AssignBonus(totalScore.Plus(_firstRoll), 2);
+            return _bowlingRolls.AssignBonus(totalScore.Plus(_firstRoll), 2);
         }
     }
 }

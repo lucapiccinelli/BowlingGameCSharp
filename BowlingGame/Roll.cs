@@ -19,7 +19,7 @@
             if (rolls.CanTake())
             {
                 var anotherRoll = rolls.RollOne();
-                return Frame.From(this, anotherRoll);
+                return Frame.From(rolls, this, anotherRoll);
             }
             else
             {

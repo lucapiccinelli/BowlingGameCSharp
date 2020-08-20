@@ -2,6 +2,6 @@
 {
     public interface IFrame
     {
-        TotalScore Score(BowlingRolls rolls, TotalScore totalScore);
+        TotalScore Score(TotalScore totalScore);
     }
 }

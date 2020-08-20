@@ -11,7 +11,7 @@
             _secondRoll = secondRoll;
         }
 
-        public TotalScore Score(BowlingRolls rolls, TotalScore totalScore)
+        public TotalScore Score(TotalScore totalScore)
         {
             return totalScore.Plus(_firstRoll).Plus(_secondRoll);
         }
