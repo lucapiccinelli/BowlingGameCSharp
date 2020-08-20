@@ -13,5 +13,10 @@
         {
             return _value.ToString();
         }
+
+        public TotalScore Plus(Roll firstRoll)
+        {
+            return new TotalScore(_value + firstRoll.Value);
+        }
     }
 }
