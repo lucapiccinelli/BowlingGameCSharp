@@ -6,7 +6,7 @@ namespace BowlingGame
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("0");
+            Console.WriteLine(args[0]);
         }
     }
 }

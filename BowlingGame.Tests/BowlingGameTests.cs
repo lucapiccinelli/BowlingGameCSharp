@@ -22,6 +22,7 @@ namespace BowlingGame.Tests
 
         [Theory]
         [InlineData("0", "0")]
+        [InlineData("1", "1")]
         public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsTheTotalScoreOnANewLine(string rolls, string expectedTotalScore)
         {
             var myOut = new StringWriter();
