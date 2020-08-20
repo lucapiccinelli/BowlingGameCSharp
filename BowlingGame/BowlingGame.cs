@@ -10,15 +10,22 @@ namespace BowlingGame
                 Roll firstRoll = rolls.TakeNext();
                 totalScore = totalScore.Plus(firstRoll);
 
-                if (rolls.CanTake())
+                if (firstRoll.IsStrike())
                 {
-                    Roll secondRoll = rolls.TakeNext();
-                    totalScore = totalScore.Plus(secondRoll);
-
-                    var frame = new Frame(firstRoll, secondRoll);
-                    if (frame.IsSpare() && rolls.CanTake())
+                    totalScore = rolls.AssignBonus(totalScore, 2);
+                }
+                else
+                {
+                    if (rolls.CanTake())
                     {
-                        totalScore = rolls.AssignBonus(totalScore);
+                        Roll secondRoll = rolls.TakeNext();
+                        totalScore = totalScore.Plus(secondRoll);
+
+                        var frame = new Frame(firstRoll, secondRoll);
+                        if (frame.IsSpare())
+                        {
+                            totalScore = rolls.AssignBonus(totalScore, 1);
+                        }
                     }
                 }
             }

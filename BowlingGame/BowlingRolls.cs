@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BowlingGame
 {
@@ -21,11 +22,11 @@ namespace BowlingGame
             return _rolls.Dequeue();
         }
 
-        public TotalScore AssignBonus(TotalScore totalScore)
+        public TotalScore AssignBonus(TotalScore totalScore, int howMany)
         {
-            Roll bonusRoll = _rolls.Peek();
-            totalScore = totalScore.Plus(bonusRoll);
-            return totalScore;
+            return _rolls
+                .Take(howMany)
+                .Aggregate(totalScore, (score, roll) => score.Plus(roll));
         }
     }
 }

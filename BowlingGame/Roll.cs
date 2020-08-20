@@ -8,5 +8,10 @@
         {
             Value = value;
         }
+
+        public bool IsStrike()
+        {
+            return Value == 10;
+        }
     }
 }
