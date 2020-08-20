@@ -51,11 +51,6 @@ namespace BowlingGame.Tests
             Assert.Equal(expectedPartialScore, score.PrintFrames());
         }
 
-        private BowlingRolls ParserRolls(string rollsString) => new BowlingRolls(
-            rollsString.Split(" ")
-                .Select(int.Parse)
-                .Select(i => new Roll(i))
-                .ToArray()
-            );
+        private BowlingRolls ParserRolls(string rollsString) => ConsoleInputParser.ParseInput(rollsString.Split(" "));
     }
 }

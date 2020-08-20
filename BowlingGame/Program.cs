@@ -5,22 +5,26 @@ namespace BowlingGame
 {
     public static class Program
     {
-        public static void Main(string[] args)
+        public static int Main(string[] args)
         {
-            BowlingRolls rolls = ParseInput(args);
-            IScore score = BowlingGame.ComputeTotalScore(rolls);
-            PrintTotalScore(score);
+            try
+            {
+                BowlingRolls rolls = ConsoleInputParser.ParseInput(args);
+                IScore score = BowlingGame.ComputeTotalScore(rolls);
+                PrintTotalScore(score);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error! {e.Message}");
+                return 1;
+            }
+
+            return 0;
         }
 
         private static void PrintTotalScore(IScore score)
         {
             Console.WriteLine(score.Print());
         }
-
-        private static BowlingRolls ParseInput(string[] args) => new BowlingRolls(
-            args
-                .Select(int.Parse)
-                .Select(i => new Roll(i))
-                .ToArray());
     }
 }

@@ -28,6 +28,16 @@ namespace BowlingGame.Tests
             Assert.Equal(expectedTotalScore, outLines[1]);
         }
 
+        [Fact]
+        public void GIVEN_AnInputFromTheCommandLine_WHEN_ARollValueIsHigherThen10_THEN_ItPrintsAnErrorMessage()
+        {
+            string rolls = "10 12 10";
+
+            Program.Main(rolls.Split(" "));
+
+            Assert.StartsWith("Error!", _myOut.ToString());
+        }
+
         private string[] OutLines()
         {
             return _myOut.ToString().Split(Environment.NewLine);
