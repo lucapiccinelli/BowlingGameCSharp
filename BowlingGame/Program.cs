@@ -8,18 +8,18 @@ namespace BowlingGame
         public static void Main(string[] args)
         {
             Roll[] rolls = ParseInput(args);
-            int totalScore = ComputeTotalScore(rolls);
+            TotalScore totalScore = ComputeTotalScore(rolls);
             PrintTotalScore(totalScore);
         }
 
-        private static void PrintTotalScore(int totalScore)
+        private static void PrintTotalScore(TotalScore totalScore)
         {
             Console.WriteLine(totalScore);
         }
 
-        private static int ComputeTotalScore(Roll[] rolls)
+        private static TotalScore ComputeTotalScore(Roll[] rolls)
         {
-            return rolls.Sum(roll => roll.Value);
+            return new TotalScore(rolls.Sum(roll => roll.Value));
         }
 
         private static Roll[] ParseInput(string[] args)
