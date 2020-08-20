@@ -11,7 +11,6 @@ namespace BowlingGame.Tests
 
         // all zeros
         // One zero frame
-        // Open frame
         // all open frame
         // spare
         // all spare
@@ -23,6 +22,7 @@ namespace BowlingGame.Tests
         [InlineData("0", "0")]
         [InlineData("1", "1")]
         [InlineData("1 1", "2")]
+        [InlineData("1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1", "20")]
         public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsTheTotalScoreOnANewLine(string rolls, string expectedTotalScore)
         {
             var myOut = new StringWriter();

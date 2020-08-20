@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace BowlingGame
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
@@ -22,12 +22,10 @@ namespace BowlingGame
             return new TotalScore(rolls.Sum(roll => roll.Value));
         }
 
-        private static Roll[] ParseInput(string[] args)
-        {
-            return args
+        private static Roll[] ParseInput(string[] args) =>
+            args
                 .Select(int.Parse)
                 .Select(i => new Roll(i))
                 .ToArray();
-        }
     }
 }
