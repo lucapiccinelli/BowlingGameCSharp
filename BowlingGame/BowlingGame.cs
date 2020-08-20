@@ -11,9 +11,10 @@ namespace BowlingGame
             while (rolls.CanTake() && currentFrameNum < MaxFrames)
             {
                 Roll firstRoll = rolls.RollOne();
-                var frame = Frame.From(rolls, firstRoll);
-                var score = frame.Score;
-                totalScore = totalScore.Plus(score);
+                totalScore = Frame
+                    .From(rolls, firstRoll)
+                    .Score
+                    .Plus(totalScore);
 
                 currentFrameNum++;
             }
