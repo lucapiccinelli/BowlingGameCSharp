@@ -8,7 +8,16 @@ namespace BowlingGame.Tests
     {
         // TODO: Show the total score on the last line. Update the total score while running
         // TODO: Show the score by frame on the first line. Update the score only when the frame is closed. Otherwise show a "-". Use a "," to separate frames
-        
+
+
+        private readonly StringWriter _myOut;
+
+        public BowlingGameTests()
+        {
+            _myOut = new StringWriter();
+            Console.SetOut(_myOut);
+        }
+
         [Theory]
         [InlineData("0", "0")]
         [InlineData("1", "1")]
@@ -23,12 +32,9 @@ namespace BowlingGame.Tests
         [InlineData("5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5", "150")]
         public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsTheTotalScoreOnANewLine(string rolls, string expectedTotalScore)
         {
-            var myOut = new StringWriter();
-            Console.SetOut(myOut);
-
             Program.Main(rolls.Split(" "));
 
-            string[] outLines = myOut.ToString().Split(Environment.NewLine);
+            string[] outLines = OutLines();
             Assert.Equal(expectedTotalScore, outLines[1]);
         }
 
@@ -47,13 +53,15 @@ namespace BowlingGame.Tests
         [InlineData("5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5", "15,15,15,15,15,15,15,15,15,15")]
         public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsThePartialScoreOnANewLine(string rolls, string expectedPartialScore)
         {
-            var myOut = new StringWriter();
-            Console.SetOut(myOut);
-
             Program.Main(rolls.Split(" "));
 
-            string[] outLines = myOut.ToString().Split(Environment.NewLine);
+            string[] outLines = OutLines();
             Assert.Equal(expectedPartialScore, outLines[0]);
+        }
+
+        private string[] OutLines()
+        {
+            return _myOut.ToString().Split(Environment.NewLine);
         }
     }
 }
