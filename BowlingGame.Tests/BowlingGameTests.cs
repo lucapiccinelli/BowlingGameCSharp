@@ -8,10 +8,7 @@ namespace BowlingGame.Tests
     {
         // TODO: Show the totale score on the last line. Update the total score while running
         // TODO: Show the score by frame on the first line. Update the score only when the frame is closed. Otherwise show a "-"
-
-        // all strikes
-        // last frame
-
+        
         [Theory]
         [InlineData("0", "0")]
         [InlineData("1", "1")]
