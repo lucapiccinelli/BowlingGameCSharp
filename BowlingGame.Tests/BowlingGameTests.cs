@@ -36,13 +36,14 @@ namespace BowlingGame.Tests
         [InlineData("0", "-")]
         [InlineData("1", "-")]
         [InlineData("1 1", "2")]
-        //[InlineData("4 6 1", "12")]
-        //[InlineData("4 6", "10")]
+        [InlineData("4 6 1", "11,-")]
+        [InlineData("4 6", "-")]
         //[InlineData("10 1 1", "14")]
         //[InlineData("10", "10")]
         //[InlineData("10 1", "12")]
         //[InlineData("10 10 10 10 10 10 10 10 10 10 10 10", "300")]
-        //[InlineData("1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1", "20")]
+        [InlineData("1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1", "2,2,2,2,2,2,2,2,2,2")]
+        [InlineData("2 1 2 6 1 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1", "3,8,4,2,2,2,2,2,2,2")]
         //[InlineData("5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5", "150")]
         public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsThePartialScoreOnANewLine(string rolls, string expectedPartialScore)
         {

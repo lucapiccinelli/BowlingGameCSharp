@@ -11,7 +11,7 @@
             _firstRoll = firstRoll;
         }
 
-        public Score Score =>
+        public IScore Score =>
             _firstRoll
                 .RollAnother(_bowlingRolls).Score;
 

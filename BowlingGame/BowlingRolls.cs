@@ -12,9 +12,9 @@ namespace BowlingGame
             _rolls = new Queue<Roll>(rolls);
         }
 
-        public bool CanTake()
+        public bool CanTake(int howMany = 1)
         {
-            return _rolls.Count > 0;
+            return _rolls.Count >= howMany;
         }
 
         public Roll RollOne()
@@ -22,11 +22,15 @@ namespace BowlingGame
             return _rolls.Dequeue();
         }
 
-        public Score AssignBonus(Score score, int howMany)
+        public IScore AssignBonus(Score score, int howMany)
         {
-            return _rolls
+            var bonus = _rolls
                 .Take(howMany)
-                .Aggregate(score, (score, roll) => score.Plus(roll));
+                .Aggregate(score, (cumulatedScore, roll) => cumulatedScore.Plus(roll));
+
+            return CanTake(howMany) 
+                ? bonus
+                : new IncompleteScore(bonus, score.Frames) as IScore;
         }
     }
 }

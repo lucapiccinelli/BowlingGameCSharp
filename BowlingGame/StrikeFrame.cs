@@ -11,11 +11,16 @@
             _firstRoll = firstRoll;
         }
 
-        public Score Score => _bowlingRolls.AssignBonus(new Score(_firstRoll.Value, this), 2);
+        public IScore Score => ComputeScore(this);
 
         public override string ToString()
         {
             return Score.ToString();
+        }
+
+        public IScore ComputeScore(IFrame frame)
+        {
+            return _bowlingRolls.AssignBonus(new Score(_firstRoll.Value, frame), 2);
         }
     }
 }

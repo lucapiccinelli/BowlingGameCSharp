@@ -4,15 +4,16 @@ namespace BowlingGame
     {
         private const int MaxFrames = 10;
 
-        public static Score ComputeTotalScore(BowlingRolls rolls)
+        public static IScore ComputeTotalScore(BowlingRolls rolls)
         {
-            Score score = new Score(0, new FrameList());
+            IScore score = new Score(0, new FrameList());
             int currentFrameNum = 0;
             while (rolls.CanTake() && currentFrameNum < MaxFrames)
             {
                 Roll firstRoll = rolls.RollOne();
                 score = Frame
-                    .From(rolls, firstRoll).Score
+                    .From(rolls, firstRoll)
+                    .Score
                     .Plus(score);
 
                 currentFrameNum++;

@@ -1,6 +1,6 @@
 ﻿namespace BowlingGame
 {
-    public class Score
+    public class Score : IScore
     {
         private readonly int _value;
 
@@ -17,7 +17,12 @@
         }
 
 
-        public readonly FrameList Frames;
+        public IScore Plus(int value, FrameList frames)
+        {
+            return new Score(value + _value, Frames.Add(frames));
+        }
+
+        public FrameList Frames { get; }
 
         private Score(Score score, FrameList frames) : this(score._value, frames)
         {
@@ -34,14 +39,9 @@
             return new Score(_value + roll.Value, Frames);
         }
 
-        public Score Plus(IFrame frame)
+        public IScore Plus(IScore score)
         {
-            return new Score(frame.Score, Frames.Add(frame));
-        }
-
-        public Score Plus(Score score)
-        {
-            return new Score(_value + score._value, Frames.Add(score.Frames));
+            return score.Plus(_value, Frames);
         }
     }
 }

@@ -8,11 +8,11 @@ namespace BowlingGame
         public static void Main(string[] args)
         {
             BowlingRolls rolls = ParseInput(args);
-            Score score = BowlingGame.ComputeTotalScore(rolls);
+            IScore score = BowlingGame.ComputeTotalScore(rolls);
             PrintTotalScore(score);
         }
 
-        private static void PrintTotalScore(Score score)
+        private static void PrintTotalScore(IScore score)
         {
             Console.WriteLine(score.Frames);
             Console.WriteLine(score);

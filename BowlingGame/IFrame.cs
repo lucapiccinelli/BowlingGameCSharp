@@ -2,6 +2,6 @@
 {
     public interface IFrame
     {
-        Score Score { get; }
+        IScore Score { get; }
     }
 }
