@@ -1,9 +1,12 @@
-﻿namespace BowlingGame
+﻿using System.Collections.Generic;
+
+namespace BowlingGame
 {
     public interface IScore
     {
         IScore Plus(IScore score);
         IScore Plus(int value, FrameList frames);
-        FrameList Frames { get; }
+        int Value { get; }
+        string Print();
     }
 }

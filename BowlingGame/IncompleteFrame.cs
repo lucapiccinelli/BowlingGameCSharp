@@ -9,7 +9,7 @@
             _roll = roll;
         }
 
-        public IScore Score => new Score(_roll.Value, this);
+        public IScore Score => new ScoreFrames(new Score(_roll.Value), this);
 
         public override string ToString()
         {

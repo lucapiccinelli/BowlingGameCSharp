@@ -26,7 +26,7 @@ namespace BowlingGame
 
         public IScore ComputeScore(IFrame frame)
         {
-            return _bowlingRolls.AssignBonus(new Score(_firstRoll.Value, frame), _bonus);
+            return _bowlingRolls.AssignBonus(new ScoreFrames(new Score(_firstRoll.Value), frame), _bonus);
         }
 
         public bool CanComplete()

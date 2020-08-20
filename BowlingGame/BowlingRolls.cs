@@ -22,15 +22,15 @@ namespace BowlingGame
             return _rolls.Dequeue();
         }
 
-        public IScore AssignBonus(Score score, int howMany)
+        public IScore AssignBonus(ScoreFrames scoreFrames, int howMany)
         {
             var bonus = _rolls
                 .Take(howMany)
-                .Aggregate(score, (cumulatedScore, roll) => cumulatedScore.Plus(roll));
+                .Aggregate(scoreFrames, (cumulatedScore, roll) => cumulatedScore.Plus(roll));
 
             return CanTake(howMany) 
                 ? bonus
-                : new IncompleteScore(bonus, score.Frames) as IScore;
+                : new IncompleteScore(bonus) as IScore;
         }
     }
 }

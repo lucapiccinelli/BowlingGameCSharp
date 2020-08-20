@@ -6,20 +6,19 @@ namespace BowlingGame
 
         public static IScore ComputeTotalScore(BowlingRolls rolls)
         {
-            IScore score = new Score(0, new FrameList());
+            IScore totalScore = new Score();
             int currentFrameNum = 0;
             while (rolls.CanTake() && currentFrameNum < MaxFrames)
             {
                 Roll firstRoll = rolls.RollOne();
-                score = Frame
-                    .From(rolls, firstRoll)
-                    .Score
-                    .Plus(score);
+                var frame = Frame.From(rolls, firstRoll);
+                var score = frame.Score;
+                totalScore = totalScore.Plus(score);
 
                 currentFrameNum++;
             }
 
-            return score;
+            return totalScore;
         }
     }
 }

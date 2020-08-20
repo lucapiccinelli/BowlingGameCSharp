@@ -22,7 +22,7 @@ namespace BowlingGame
 
         public IScore ComputeScore(IFrame frame)
         {
-            return _bowlingRolls.AssignBonus(new Score(_firstRoll.Value, frame).Plus(_secondRoll), _bonus);
+            return _bowlingRolls.AssignBonus(new ScoreFrames(new Score(_firstRoll.Value), frame).Plus(_secondRoll), _bonus);
         }
 
         public IScore Score => _score.Value;

@@ -11,7 +11,7 @@
             _secondRoll = secondRoll;
         }
 
-        public IScore Score => new Score(_firstRoll.Value, this).Plus(_secondRoll);
+        public IScore Score => new ScoreFrames(new Score(_firstRoll.Value), this).Plus(_secondRoll);
 
         public override string ToString()
         {

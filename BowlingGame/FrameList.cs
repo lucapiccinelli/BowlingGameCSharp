@@ -15,7 +15,7 @@ namespace BowlingGame
 
         public override string ToString()
         {
-            return string.Join(",", Array.ConvertAll(_frames.ToArray(), frame => frame.ToString()));
+            return string.Join(",", Array.ConvertAll(_frames.ToArray().Reverse().ToArray(), frame => frame.ToString()));
         }
 
         public FrameList Add(IFrame frame)

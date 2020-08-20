@@ -14,8 +14,7 @@ namespace BowlingGame
 
         private static void PrintTotalScore(IScore score)
         {
-            Console.WriteLine(score.Frames);
-            Console.WriteLine(score);
+            Console.WriteLine(score.Print());
         }
 
         private static BowlingRolls ParseInput(string[] args) => new BowlingRolls(
