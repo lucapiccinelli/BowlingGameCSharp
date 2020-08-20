@@ -15,5 +15,11 @@
         {
             return _firstRoll.Value + _secondRoll.Value == 10;
         }
+
+        public static IFrame From(Roll firstRoll)
+        {
+            if (firstRoll.IsStrike()) return new StrikeFrame(firstRoll);
+            return new OpenFrame(firstRoll);
+        }
     }
 }
