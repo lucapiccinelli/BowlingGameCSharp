@@ -7,7 +7,7 @@ namespace BowlingGame
     {
         public static void Main(string[] args)
         {
-            Roll[] rolls = ParseInput(args);
+            BowlingRolls rolls = ParseInput(args);
             TotalScore totalScore = ComputeTotalScore(rolls);
             PrintTotalScore(totalScore);
         }
@@ -17,24 +17,21 @@ namespace BowlingGame
             Console.WriteLine(totalScore);
         }
 
-        private static TotalScore ComputeTotalScore(Roll[] rolls)
+        private static TotalScore ComputeTotalScore(BowlingRolls rolls)
         {
             TotalScore totalScore = new TotalScore(0);
-            int rollsNumber = rolls.Length;
-
-            for (int i = 0; CanTake(i, rollsNumber);)
+            while(rolls.CanTake())
             {
-                Roll firstRoll = rolls[i++];
+                Roll firstRoll = rolls.TakeNext();
                 totalScore = totalScore.Plus(firstRoll);
 
-                if (CanTake(i, rollsNumber))
+                if (rolls.CanTake())
                 {
-                    Roll secondRoll = rolls[i++];
+                    Roll secondRoll = rolls.TakeNext();
                     totalScore = totalScore.Plus(secondRoll);
-
-                    if (IsSpare(firstRoll, secondRoll) && CanTake(i, rollsNumber))
+                    if (IsSpare(firstRoll, secondRoll) && rolls.CanTake())
                     {
-                        totalScore = AssignBonus(rolls, i, totalScore);
+                        totalScore = rolls.AssignBonus(totalScore);
                     }
                 }
             }
@@ -42,27 +39,15 @@ namespace BowlingGame
             return totalScore;
         }
 
-        private static bool CanTake(int i, int rollsNumber)
-        {
-            return i < rollsNumber;
-        }
-
         private static bool IsSpare(Roll firstRoll, Roll secondRoll)
         {
             return firstRoll.Value + secondRoll.Value == 10;
         }
 
-        private static TotalScore AssignBonus(Roll[] rolls, int i, TotalScore totalScore)
-        {
-            Roll bonusRoll = rolls[i];
-            totalScore = totalScore.Plus(bonusRoll);
-            return totalScore;
-        }
-
-        private static Roll[] ParseInput(string[] args) =>
+        private static BowlingRolls ParseInput(string[] args) => new BowlingRolls(
             args
                 .Select(int.Parse)
                 .Select(i => new Roll(i))
-                .ToArray();
+                .ToArray());
     }
 }
