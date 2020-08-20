@@ -29,12 +29,12 @@
 
         public Score Plus(IFrame frame)
         {
-            return new Score(frame.Score(), Frames.Add(frame));
+            return new Score(frame.Score, Frames.Add(frame));
         }
 
         public Score Plus(Score score)
         {
-            return new Score(_value + score._value, Frames);
+            return new Score(_value + score._value, Frames.Add(score.Frames));
         }
     }
 }

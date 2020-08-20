@@ -11,11 +11,13 @@
             _firstRoll = firstRoll;
         }
 
-        public Score Score()
+        public Score Score =>
+            _firstRoll
+                .RollAnother(_bowlingRolls).Score;
+
+        public override string ToString()
         {
-            return _firstRoll
-                .RollAnother(_bowlingRolls)
-                .Score();
+            return Score.ToString();
         }
     }
 }

@@ -9,14 +9,11 @@
             _roll = roll;
         }
 
-        public Score Score(Score score)
-        {
-            return score.Plus(this);
-        }
+        public Score Score => new Score(_roll.Value);
 
-        public Score Score()
+        public override string ToString()
         {
-            return new Score(_roll.Value);
+            return "-";
         }
     }
 }

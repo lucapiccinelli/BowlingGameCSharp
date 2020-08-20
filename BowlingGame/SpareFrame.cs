@@ -13,9 +13,11 @@
             _secondRoll = secondRoll;
         }
 
-        public Score Score()
+        public Score Score => _bowlingRolls.AssignBonus(new Score(_firstRoll.Value).Plus(_secondRoll), 1);
+
+        public override string ToString()
         {
-            return _bowlingRolls.AssignBonus(new Score(_firstRoll.Value).Plus(_secondRoll), 1);
+            return Score.ToString();
         }
     }
 }

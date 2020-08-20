@@ -12,8 +12,7 @@ namespace BowlingGame
             {
                 Roll firstRoll = rolls.RollOne();
                 score = Frame
-                    .From(rolls, firstRoll)
-                    .Score()
+                    .From(rolls, firstRoll).Score
                     .Plus(score);
 
                 currentFrameNum++;

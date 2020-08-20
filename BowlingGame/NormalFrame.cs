@@ -11,9 +11,11 @@
             _secondRoll = secondRoll;
         }
 
-        public Score Score()
+        public Score Score => new Score(_firstRoll.Value).Plus(_secondRoll);
+
+        public override string ToString()
         {
-            return new Score(_firstRoll.Value).Plus(_secondRoll);
+            return Score.ToString();
         }
     }
 }

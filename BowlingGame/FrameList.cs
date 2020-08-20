@@ -23,5 +23,11 @@ namespace BowlingGame
             _frames.Add(frame);
             return new FrameList(_frames);
         }
+
+        public FrameList Add(FrameList frames)
+        {
+            _frames.AddRange(frames._frames);
+            return new FrameList(_frames);
+        }
     }
 }
