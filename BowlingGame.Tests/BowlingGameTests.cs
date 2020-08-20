@@ -20,17 +20,17 @@ namespace BowlingGame.Tests
         // all strikes
         // last frame
 
-        [Fact]
-        public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsTheTotalScoreOnANewLine()
+        [Theory]
+        [InlineData("0", "0")]
+        public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsTheTotalScoreOnANewLine(string rolls, string expectedTotalScore)
         {
             var myOut = new StringWriter();
             Console.SetOut(myOut);
 
-            string[] rolls = new[] {"0"};
-            Program.Main(rolls);
+            Program.Main(rolls.Split(" "));
 
             string[] outLines = myOut.ToString().Split(Environment.NewLine);
-            Assert.Equal("0", outLines[0]);
+            Assert.Equal(expectedTotalScore, outLines[0]);
         }
     }
 }
