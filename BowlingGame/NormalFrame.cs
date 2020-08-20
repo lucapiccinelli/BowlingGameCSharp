@@ -11,7 +11,7 @@
             _secondRoll = secondRoll;
         }
 
-        public Score Score => new Score(_firstRoll.Value).Plus(_secondRoll);
+        public Score Score => new Score(_firstRoll.Value, this).Plus(_secondRoll);
 
         public override string ToString()
         {

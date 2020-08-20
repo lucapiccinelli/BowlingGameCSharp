@@ -4,11 +4,18 @@
     {
         private readonly int _value;
 
-        public Score(int value, FrameList frames = null)
+        public Score(int value, FrameList frames)
         {
             _value = value;
             Frames = frames ?? new FrameList();
         }
+
+        public Score(int value, IFrame frame)
+        {
+            _value = value;
+            Frames = new FrameList().Add(frame);
+        }
+
 
         public readonly FrameList Frames;
 

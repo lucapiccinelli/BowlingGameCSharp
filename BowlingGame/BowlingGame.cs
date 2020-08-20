@@ -6,7 +6,7 @@ namespace BowlingGame
 
         public static Score ComputeTotalScore(BowlingRolls rolls)
         {
-            Score score = new Score(0);
+            Score score = new Score(0, new FrameList());
             int currentFrameNum = 0;
             while (rolls.CanTake() && currentFrameNum < MaxFrames)
             {
