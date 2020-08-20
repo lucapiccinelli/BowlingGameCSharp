@@ -7,7 +7,7 @@ namespace BowlingGame
             if (firstRoll.IsStrike())
             {
                 var strikeFrame = new StrikeFrame(rolls, firstRoll);
-                if (rolls.CanTake(2))
+                if (strikeFrame.CanComplete())
                     return strikeFrame;
                 return new IncompleteStrike(strikeFrame);
             }
@@ -19,7 +19,7 @@ namespace BowlingGame
             if (firstRoll.Value + anotherRoll.Value == 10)
             {
                 var spareFrame = new SpareFrame(bowlingRolls, firstRoll, anotherRoll);
-                if (bowlingRolls.CanTake(1))
+                if (spareFrame.CanComplete())
                     return spareFrame;
                 return new IncompleteSpare(spareFrame);
                 

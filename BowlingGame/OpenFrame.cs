@@ -13,7 +13,8 @@
 
         public IScore Score =>
             _firstRoll
-                .RollAnother(_bowlingRolls).Score;
+                .RollAnother(_bowlingRolls)
+                .Score;
 
         public override string ToString()
         {
