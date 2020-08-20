@@ -8,5 +8,6 @@ namespace BowlingGame
         IScore Plus(int value, FrameList frames);
         int Value { get; }
         string Print();
+        string PrintFrames();
     }
 }

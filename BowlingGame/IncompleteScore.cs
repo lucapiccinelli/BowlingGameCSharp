@@ -27,6 +27,11 @@
             return _score.Print();
         }
 
+        public string PrintFrames()
+        {
+            return _score.PrintFrames();
+        }
+
         public override string ToString()
         {
             return _score.ToString();

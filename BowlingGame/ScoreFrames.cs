@@ -29,7 +29,12 @@ namespace BowlingGame
 
         public string Print()
         {
-            return $"{Frames}{Environment.NewLine}{_score}";
+            return $"{PrintFrames()}{Environment.NewLine}{_score}";
+        }
+
+        public string PrintFrames()
+        {
+            return Frames.ToString();
         }
 
         public override string ToString()

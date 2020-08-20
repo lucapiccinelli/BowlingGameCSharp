@@ -24,6 +24,11 @@
             return ToString();
         }
 
+        public string PrintFrames()
+        {
+            return Value.ToString();
+        }
+
         public override string ToString()
         {
             return Value.ToString();
