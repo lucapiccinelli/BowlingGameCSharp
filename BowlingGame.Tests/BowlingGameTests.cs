@@ -9,7 +9,6 @@ namespace BowlingGame.Tests
         // TODO: Show the totale score on the last line. Update the total score while running
         // TODO: Show the score by frame on the first line. Update the score only when the frame is closed. Otherwise show a "-"
 
-        // One zero
         // all zeros
         // One zero frame
         // Open frame
@@ -23,6 +22,7 @@ namespace BowlingGame.Tests
         [Theory]
         [InlineData("0", "0")]
         [InlineData("1", "1")]
+        [InlineData("1 1", "2")]
         public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsTheTotalScoreOnANewLine(string rolls, string expectedTotalScore)
         {
             var myOut = new StringWriter();

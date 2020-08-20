@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace BowlingGame
 {
@@ -6,7 +7,8 @@ namespace BowlingGame
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine(args[0]);
+            int[] rolls = args.Select(int.Parse).ToArray();
+            Console.WriteLine(rolls.Sum());
         }
     }
 }
