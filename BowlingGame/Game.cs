@@ -1,18 +1,20 @@
 namespace BowlingGame
 {
-    static public class Game
+    public static class Game
     {
         public static Score ComputeScore(BowlingRolls rolls)
         {
-            Score totalScore = new Score();
             const int maxNumberOfFrames = 10;
-            int currentOfFrames = 0;
-            while(rolls.HasRolls() && currentOfFrames < maxNumberOfFrames)
+            int currentNumberOfFrames = 0;
+
+            Score totalScore = new Score();
+            while(rolls.HasRolls() && currentNumberOfFrames < maxNumberOfFrames)
             {
-                var firstRoll = rolls.RollOne();
-                var frame = Frame.From(firstRoll);
-                totalScore = totalScore.Add(frame.Score(rolls));
-                currentOfFrames++;
+                totalScore = Frame
+                    .From(rolls.RollOne())
+                    .Score(rolls)
+                    .Add(totalScore);
+                currentNumberOfFrames++;
             }
             return totalScore;
         }
