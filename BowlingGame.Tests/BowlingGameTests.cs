@@ -9,7 +9,6 @@ namespace BowlingGame.Tests
         // TODO: Show the total score on the last line. Update the total score while running. When a frame is incomplete it sums its current value.
         // TODO: Show the score by frame on the first line. Update the score only when the frame is closed. Otherwise show a "-".
 
-        // spare
         // all spare
         // strike
         // all strikes
@@ -23,6 +22,7 @@ namespace BowlingGame.Tests
         [InlineData("5,5,1", "12")]
         [InlineData("0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", "0")]
         [InlineData("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1", "20")]
+        //[InlineData("5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5", "150")]
         public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsTheTotalScoreOnANewLine(string inputRollsStr, string expectedTotalScore)
         {
             using var myOut = new StringWriter();
