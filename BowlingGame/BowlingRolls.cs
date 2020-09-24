@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BowlingGame
 {
@@ -26,9 +27,14 @@ namespace BowlingGame
             return _rolls.Count > 0;
         }
 
-        public Roll Bonus()
+        public Roll Bonus(int position = 0)
         {
-            return _rolls.Peek();
+            if (_rolls.Count > position)
+            {
+                if (position == 0) return _rolls.Peek();
+                return _rolls.Skip(1).First();
+            }
+            return new Roll(0);
         }
     }
 }
