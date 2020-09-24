@@ -19,6 +19,8 @@ namespace BowlingGame.Tests
         [InlineData("0", "0")]
         [InlineData("1", "1")]
         [InlineData("1,1", "2")]
+        [InlineData("5,5", "10")]
+        [InlineData("5,5,1", "12")]
         [InlineData("0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", "0")]
         [InlineData("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1", "20")]
         public void GIVEN_AnInputFromTheCommandLine_WHEN_ItIsAListOfRolls_THEN_ItPrintsTheTotalScoreOnANewLine(string inputRollsStr, string expectedTotalScore)
