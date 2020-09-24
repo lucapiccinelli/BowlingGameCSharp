@@ -23,13 +23,13 @@ namespace BowlingGame
             Score totalScore = new Score();
             const int maxNumberOfFrames = 10;
             int currentOfFrames = 0;
-            while(rolls.HasElements() && currentOfFrames < maxNumberOfFrames)
+            while(rolls.HasRolls() && currentOfFrames < maxNumberOfFrames)
             {
                 var firstRoll = rolls.RollOne();
                 Score currentScore = new Score(firstRoll);
                 if (firstRoll.Value == 10)
                 {
-                    currentScore = currentScore.Add(rolls.Bonus()).Add(rolls.Bonus(1));
+                    currentScore = currentScore.Add(rolls.Bonus(2));
                 }
                 else
                 {
@@ -42,7 +42,7 @@ namespace BowlingGame
                         {
                             if (rolls.CanRoll())
                             {
-                                currentScore = currentScore.Add(rolls.Bonus());
+                                currentScore = currentScore.Add(rolls.Bonus(1));
                             }
                         }
                     }
