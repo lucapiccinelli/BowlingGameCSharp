@@ -2,12 +2,12 @@ namespace BowlingGame
 {
     public static class Game
     {
-        public static Score ComputeScore(BowlingRolls rolls)
+        public static TotalScore ComputeScore(BowlingRolls rolls)
         {
             const int maxNumberOfFrames = 10;
             int currentNumberOfFrames = 0;
 
-            Score totalScore = new Score();
+            TotalScore totalScore = new TotalScore();
             while(rolls.HasRolls() && currentNumberOfFrames < maxNumberOfFrames)
             {
                 totalScore = Frame

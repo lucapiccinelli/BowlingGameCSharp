@@ -2,7 +2,7 @@
 
 namespace BowlingGame
 {
-    public class Score
+    public class Score : IScore
     {
         public int Value { get; }
 
@@ -16,16 +16,15 @@ namespace BowlingGame
             Value = roll.Value;
         }
 
-        public override string ToString()
-        {
-            return $"{Environment.NewLine}{Value}";
-        }
+        public override string ToString() => Value.ToString();
 
-        public Score Add(Roll secondRoll) => new Score(Value + secondRoll.Value);
+        public TotalScore Add(TotalScore totalScore) => totalScore.Add(this);
 
-        public Score Add(Score otherScore) => new Score(Value + otherScore.Value);
+        public IScore Add(Roll secondRoll) => new Score(Value + secondRoll.Value);
 
-        public Score Add(Bonus bonus) => new Score(Value + bonus.Value);
+        public IScore Add(IScore otherScore) => new ScoreChain(this, otherScore);
+
+        public IScore Add(Bonus bonus) => new Score(Value + bonus.Value);
 
         public Boolean IsSpare()
         {

@@ -9,7 +9,7 @@ namespace BowlingGame
             _firstRoll = firstRoll;
         }
 
-        public Score Score(BowlingRolls rolls)
+        public IScore Score(BowlingRolls rolls)
         {
             if (rolls.CanRoll())
             {
@@ -18,7 +18,7 @@ namespace BowlingGame
             return new Score(_firstRoll);
         }
 
-        private Score EvaluateASpare(BowlingRolls rolls, Roll firsRoll, Roll secondRoll)
+        private IScore EvaluateASpare(BowlingRolls rolls, Roll firsRoll, Roll secondRoll)
         {
             var currentScore = new Score(firsRoll).Add(secondRoll);
             if (currentScore.IsSpare())

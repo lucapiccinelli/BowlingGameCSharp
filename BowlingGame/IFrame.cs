@@ -2,6 +2,6 @@ namespace BowlingGame
 {
     public interface IFrame
     {
-        Score Score(BowlingRolls rolls);
+        IScore Score(BowlingRolls rolls);
     }
 }
