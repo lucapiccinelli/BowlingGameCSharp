@@ -27,12 +27,17 @@ namespace BowlingGame
             return _rolls.Count > 0;
         }
 
-        public Bonus Bonus(int howManyRolls)
+        public IBonus Bonus(int howManyRolls)
         {
             var bonusValue = _rolls
                 .Take(howManyRolls)
                 .Sum(roll => roll.Value);
-            return new Bonus(bonusValue);
+            if (_rolls.Count >= howManyRolls)
+            {
+                return new Bonus(bonusValue);
+            }
+
+            return new InvalidBonus(bonusValue);
         }
     }
 }

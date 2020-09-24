@@ -17,7 +17,7 @@
 
         public IScore Add(IScore otherScore) => new ScoreChain(this, otherScore);
 
-        public IScore Add(Bonus bonus) => new ScoreChain(this, _currentScore.Add(bonus));
+        public IScore Add(IBonus bonus) => new ScoreChain(this, _currentScore.Add(bonus));
 
         public bool IsSpare() => _currentScore.IsSpare();
 

@@ -24,7 +24,7 @@ namespace BowlingGame
 
         public IScore Add(IScore otherScore) => new ScoreChain(this, otherScore);
 
-        public IScore Add(Bonus bonus) => new Score(Value + bonus.Value);
+        public IScore Add(IBonus bonus) => bonus.Add(this);
 
         public Boolean IsSpare()
         {

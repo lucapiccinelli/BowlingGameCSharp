@@ -15,7 +15,7 @@ namespace BowlingGame
             {
                 return EvaluateASpare(rolls, _firstRoll, rolls.RollOne());
             }
-            return new Score(_firstRoll);
+            return new InvalidScore(_firstRoll);
         }
 
         private IScore EvaluateASpare(BowlingRolls rolls, Roll firsRoll, Roll secondRoll)
