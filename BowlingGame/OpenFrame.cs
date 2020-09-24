@@ -1,6 +1,6 @@
 namespace BowlingGame
 {
-    public class OpenFrame
+    public class OpenFrame : IFrame
     {
         private readonly Roll _firstRoll;
 
@@ -13,13 +13,12 @@ namespace BowlingGame
         {
             if (rolls.CanRoll())
             {
-                var secondRoll = rolls.RollOne();
-                return ComputeScore(rolls, _firstRoll, secondRoll);
+                return EvaluateASpare(rolls, _firstRoll, rolls.RollOne());
             }
             return new Score(_firstRoll);
         }
 
-        private Score ComputeScore(BowlingRolls rolls, Roll firsRoll, Roll secondRoll)
+        private Score EvaluateASpare(BowlingRolls rolls, Roll firsRoll, Roll secondRoll)
         {
             var currentScore = new Score(firsRoll).Add(secondRoll);
             if (currentScore.IsSpare())
