@@ -21,11 +21,9 @@ namespace BowlingGame
         private IScore EvaluateASpare(BowlingRolls rolls, Roll firsRoll, Roll secondRoll)
         {
             var currentScore = new Score(firsRoll).Add(secondRoll);
-            if (currentScore.IsSpare())
-            {
-                return SpareFrame.Score(rolls);
-            }
-            return currentScore;
+            return currentScore.IsSpare() 
+                ? SpareFrame.Score(rolls) 
+                : currentScore;
         }
     }
 }

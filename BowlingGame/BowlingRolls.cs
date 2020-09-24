@@ -32,12 +32,10 @@ namespace BowlingGame
             var bonusValue = _rolls
                 .Take(howManyRolls)
                 .Sum(roll => roll.Value);
-            if (_rolls.Count >= howManyRolls)
-            {
-                return new Bonus(bonusValue);
-            }
 
-            return new InvalidBonus(bonusValue);
+            return _rolls.Count >= howManyRolls 
+                ? (IBonus) new Bonus(bonusValue) 
+                : new InvalidBonus(bonusValue);
         }
     }
 }
