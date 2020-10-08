@@ -19,8 +19,8 @@ Beyond the tipical requirements of this kata, here it is required to **play the 
  example:
  ```
  c:\> BowlingGame.exe 1 1 10 5 5 
- 32
  2 20 -
+ 32
  ```
  
  ## Branches:
